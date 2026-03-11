@@ -203,7 +203,7 @@ section {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(120deg, #f5f7fc 0%, #e9edf8 100%);
+    background: linear-gradient(120deg, #d0dcf5 0%, #a8b9db 100%);
     position: relative;
     overflow: hidden; /* For particles canvas */
 }
