@@ -287,7 +287,7 @@ section {
 }
 
 .about-details .detail-item:last-child {
-    margin-top: 4rem;  /* ← Zusätzlicher Abstand vor "Interessen" */
+    margin-top: 10rem;  /* ← Zusätzlicher Abstand vor "Interessen" */
 }
 
 .about-details ul li {
