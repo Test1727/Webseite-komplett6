@@ -343,6 +343,35 @@ const translations = {
 };
 
 
+alert('language-switcher.js wurde geladen!');
+console.log('Test');
+
+alert('1. Datei gestartet');
+
+document.addEventListener('DOMContentLoaded', function() {
+    alert('2. DOM geladen');
+    
+    // Aktuell ausgewählte Sprache (Standard: Deutsch)
+    let currentLanguage = localStorage.getItem('language') || 'de';
+    
+    const languageSwitch = document.getElementById('language-switch');
+    alert('3. languageSwitch gefunden: ' + (languageSwitch !== null));
+    
+    if (languageSwitch) {
+        languageSwitch.value = currentLanguage;
+        
+        languageSwitch.addEventListener('change', function() {
+            alert('4. Change-Event ausgelöst! Sprache: ' + this.value);
+            
+            currentLanguage = this.value;
+            localStorage.setItem('language', currentLanguage);
+            updatePageLanguage();
+            
+            alert('5. updatePageLanguage() wurde aufgerufen');
+        });
+    }
+
+
     
     // Initialer Aufruf
     updatePageLanguage();
