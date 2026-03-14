@@ -82,6 +82,32 @@
     text-align: center;
 }
 
+/* Smartphone: Hero-Buttons untereinander */
+@media (max-width: 768px) {
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        margin-right: 0;
+        width: 80%;
+        max-width: 280px;
+        text-align: center;
+    }
+}
+
+/* Für sehr kleine Geräte noch anpassen */
+@media (max-width: 480px) {
+    .hero-buttons .btn {
+        width: 90%;
+        padding: 12px 15px;
+    }
+}
+
 /* Smartphone: Alle langen Überschriften in der Timeline korrigieren */
 @media (max-width: 768px) {
     /* Alle h2 und h3 in der Timeline */
