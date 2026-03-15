@@ -308,7 +308,7 @@ section {
 .hero-brain2 {
     position: absolute;
     top: -100px;
-    right: -70%;  /* Gleicher Wert wie left bei Bild 1 */
+    right: -55%;  /* Gleicher Wert wie left bei Bild 1 */
     width: auto;
     height: 150%;
     object-fit: cover;
