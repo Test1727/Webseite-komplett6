@@ -413,6 +413,38 @@ section {
     }
 }
 
+/* Smartphone-Anpassungen */
+@media (max-width: 768px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-image {
+        margin-top: 1rem;  /* Weniger Abstand */
+    }
+    
+    .profile-image {
+        width: 180px;  /* Kleiner */
+        height: 180px;
+        margin-top: 0;  /* Kein negativer margin */
+    }
+    
+    .hero-content {
+        margin-top: -20px;  /* Weniger nach oben */
+    }
+    
+    .hero-buttons {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .hero-buttons .btn {
+        min-width: 150px;  /* Kleinere Buttons */
+        padding: 10px 20px;
+    }
+}
+
 
 
 /* About Section - maximal dezent */
