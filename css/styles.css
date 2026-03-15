@@ -308,20 +308,19 @@ section {
     pointer-events: none;
 }
 
-
 .hero-brain2 {
     position: absolute;
-    right: -50%;  /* Symmetrisch zu Bild 1 */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 45%;
-    max-width: 500px;
-    height: auto;
+    top: -100px;  /* Gleicher top-Wert */
+    right: -50%;  /* Statt left: -50% */
+    left: auto;   /* left zurücksetzen */
+    width: auto;
+    height: 150%;
+    transform: rotate(-90deg);  /* Gleiche Drehung */
+    object-fit: cover;
     opacity: 0.3;
     z-index: 1;
     pointer-events: none;
 }
-
 
 
 
