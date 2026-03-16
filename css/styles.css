@@ -620,6 +620,38 @@ section {
 }
 
 
+/* EXTRA FÜR SEHR KLEINE GERÄTE (unter 480px) */
+@media (max-width: 480px) {
+    /* Kleinere Buttons für sehr schmale Displays */
+    .header-right .language-selector select,
+    .header-right .resume-btn {
+        height: 40px !important;
+        min-height: 40px !important;
+        max-height: 40px !important;
+        line-height: 36px !important;
+        font-size: 0.8rem;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    
+    /* Speziell für Select - Platz für Pfeil anpassen */
+    .header-right .language-selector select {
+        padding-right: 22px !important;  /* Weniger Platz für Pfeil */
+        background-position: right 6px center;  /* Pfeil näher am Rand */
+    }
+    
+    /* Noch kleinerer Abstand zwischen den Buttons */
+    .header-right {
+        gap: 5px;
+    }
+}
+
+/* EXTRA FÜR SEHR GROßE SMARTFONES (z.B. iPhone Plus) */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Hier könnten Anpassungen für größere Smartphones stehen */
+}
+
+
 
     
 
