@@ -947,6 +947,32 @@ textarea:focus {
     100% { opacity: 0.3; }
 }
 
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background: #1a4a7a;
+    border: 1px solid #0a3d62;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.prefix {
+    padding: 0 10px;
+    background: #0a3d62;
+    color: #a8d8ff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.input-wrapper input {
+    border: none;
+    background: transparent;
+    flex: 1;
+    padding: 10px;
+    color: #e0f7ff;
+}
+
 
 
 
