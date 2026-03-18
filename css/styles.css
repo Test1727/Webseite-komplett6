@@ -908,7 +908,7 @@ textarea:focus {
 .encryption-status .dot {
     width: 8px;
     height: 8px;
-    background: #1a4a7a;  /* Gleiches DUNKELBLAU für den Punkt */
+    background: #0a66c2 ;  /* Gleiches DUNKELBLAU für den Punkt */
     border-radius: 50%;
     animation: pulse 1s infinite;
     box-shadow: 0 0 5px #1a4a7a;
