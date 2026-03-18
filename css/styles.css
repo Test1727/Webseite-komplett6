@@ -880,7 +880,7 @@ section {
 
 textarea {
     width: 100%;
-    background: #1a2a3f /* Dunkelblau (etwas heller als vorher für besseren Kontrast) */
+    background: # #0a1a2f; /* Dunkelblau (etwas heller als vorher für besseren Kontrast) */
     border: 1px solid #0a3d62;
     color: #e0f7ff;
     padding: 10px;
