@@ -4,6 +4,7 @@
 
     section {
     padding: 60px 0;
+    scroll-padding-top: 100px; /* damit passt das Scrollen auf dem Smartphone */
 }
 
 
