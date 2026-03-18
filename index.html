@@ -1147,22 +1147,23 @@
                                     <input type="hidden" name="_subject" value="Neue Kontaktanfrage von der Website">
                                     <input type="hidden" name="_captcha" value="false">
                                     <input type="hidden" name="_next" value="https://8082-i69n2eedc9jgjj26pxeis-2ba611b5.manusvm.computer#contact">
-                                    <div class="form-group">
-                                        <label for="contact-name" data-i18n="form_name">Name</label>
-                                        <input type="text" id="contact-name" name="name" required>
-                                    </div>
 
                                     <div class="form-group">
-                                        <label for="contact-email" data-i18n="form_email">E-Mail</label>
-                                        <input type="email" id="contact-email" name="email" required>
-                                    </div>
+    <label for="contact-name" data-i18n="form_name">Name</label>
+    <input type="text" id="contact-name" name="name" required readonly placeholder="Dieses Feld ist schreibgeschützt">
+</div>
+
+<div class="form-group">
+    <label for="contact-email" data-i18n="form_email">E-Mail</label>
+    <input type="email" id="contact-email" name="email" required readonly placeholder="Dieses Feld ist schreibgeschützt">
+</div>
+
 
                                     
 
 <div class="form-group">
     <label for="contact-message">
-        Nachricht 
-        <span class="futuristic-badge">🧠 NEURAL ENCRYPTED</span>
+        <span data-i18n="form_message">Nachricht</span>
     </label>
 
     <textarea id="contact-message" 
@@ -1170,22 +1171,14 @@
               rows="5" 
               required 
               data-max-words="100"
-              placeholder="Ihre Nachricht wird in Echtzeit neuronal verschlüsselt..."></textarea>
+              placeholder="Diese Nachricht wird in Echtzeit neuronal verschlüsselt..."
+              readonly></textarea>
 
     <div class="encryption-status">
         <span class="dot"></span> Quantenverschlüsselung aktiv
         <span class="faux-percentage">128-bit → 256-bit → 512-bit</span>
     </div>
 </div>
-
-                                    
-
-
-
-                                    
-
-
-
 
 
 
