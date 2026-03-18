@@ -869,10 +869,9 @@ section {
 
 
 /* Textbox  */
-
 .futuristic-badge {
     background: linear-gradient(90deg, #c0a87a, #a58e6b); /* Warme Erdtöne passend zu #f9f5f0 */
-    color: #2c3e50;
+    color: #2c3e50; /* Dunkles Blaugrau für Text */
     padding: 2px 8px;
     font-size: 0.7rem;
     border-radius: 8px;
@@ -894,14 +893,14 @@ textarea {
 
 textarea:focus {
     box-shadow: 0 0 12px rgba(192, 168, 122, 0.7);
-    border-color: #a58e6b;
+    border-color: #a58e6b; /* Dunkleres Goldbraun bei Fokus */
     background: #f0e8dd; /* Etwas heller bei Fokus */
 }
 
 .encryption-status {
     margin-top: 5px;
     font-size: 0.8rem;
-    color: #7f8c8d; /* Gedämpftes Grau-Blau */
+    color: #0a66c2; /* BLAU für "Quantenverschlüsselung aktiv" - GLEICHES BLAU wie Telefonnummer +49 172 */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -911,15 +910,15 @@ textarea:focus {
 .encryption-status .dot {
     width: 8px;
     height: 8px;
-    background: #b0a090; /* Warmes Grau passend zum Farbschema */
+    background: #0a66c2; /* BLAU für den Punkt - GLEICHES BLAU wie Telefonnummer */
     border-radius: 50%;
     animation: pulse 1s infinite;
-    box-shadow: 0 0 5px #b0a090;
+    box-shadow: 0 0 5px #0a66c2; /* BLAUER Schatten passend dazu */
 }
 
 .faux-percentage {
     margin-left: auto;
-    color: #9b8b7a; /* Warmes Braun-Grau */
+    color: #5e9fd6; /* HELLERES BLAU für "128-bit → 256-bit → 512-bit" */
     opacity: 0.9;
     font-weight: 600;
 }
@@ -929,6 +928,7 @@ textarea:focus {
     50% { opacity: 1; transform: scale(1.1); }
     100% { opacity: 0.3; transform: scale(0.9); }
 }
+
 
 
 
