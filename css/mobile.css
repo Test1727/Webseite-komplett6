@@ -211,66 +211,83 @@ nav ul li a {
 
    /* === FILMSTREIFEN ANPASSUNGEN === */
     .projects-carousel {
-        padding: 30px 0 30px 0;  /* Weniger Padding oben/unten */
+        padding: 20px 0 20px 0;  /* Weniger Padding oben/unten */
     }
     
     .project-card-carousel {
-        height: 480px;  /* Reduzierte Höhe für Smartphone */
-        min-height: 480px;
+        height: 400px;  /* Reduzierte Höhe für Smartphone */
+        min-height: 400px;
     }
     
     .carousel-image {
-        height: 180px;  /* Kleinere Bilder */
+        height: 140px;  /* Kleinere Bilder */
     }
     
     .carousel-header {
-        padding: 0.8rem;  /* Weniger Padding */
+        padding: 0.6rem;  /* Weniger Padding */
     }
     
     .carousel-header h3 {
-        font-size: 1rem;  /* Kleinere Schrift */
+        font-size: 0.9rem;  /* Kleinere Schrift */
+        margin-bottom: 0.2rem;
     }
     
     .carousel-header p {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
+        margin: 0;
     }
     
     .carousel-body {
-        padding: 0.8rem;
+        padding: 0.6rem;
     }
     
     .carousel-body li {
-        font-size: 0.75rem;  /* Kleinere Schrift in der Liste */
-        margin-bottom: 0.4rem;
+        font-size: 0.7rem;  /* Kleinere Schrift */
+        margin-bottom: 0.3rem;
+        padding-left: 1rem;
     }
     
     .carousel-tags {
-        padding: 0.8rem 0.8rem 1rem;
-        gap: 0.3rem;
+        padding: 0.5rem 0.6rem 0.6rem;
+        gap: 0.25rem;
     }
     
     .carousel-tag {
-        font-size: 0.6rem;  /* Kleinere Tags */
-        padding: 0.15rem 0.5rem;
+        font-size: 0.55rem;  /* Kleinere Tags */
+        padding: 0.1rem 0.4rem;
     }
+
+    /* Container breiter machen durch weniger Margin */
+    .projects-carousel .carousel-container {
+        margin: 0 10px;  /* Weniger Margin außen */
+    }
+    
     
     /* Navigation Buttons etwas kleiner */
     .carousel-button {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+
+        .carousel-button.prev {
+        left: 5px;  /* Näher am Rand */
+    }
+
+        .carousel-button.next {
+        right: 5px;  /* Näher am Rand */
     }
     
     
     /* Dots etwas kleiner */
     .carousel-dots {
-        gap: 8px;
-        margin-top: 15px;
+        gap: 6px;
+        margin-top: 10px;
     }
     
     .carousel-dot {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
     }
 }
 
@@ -307,21 +324,25 @@ nav ul li a {
     }
 
   /*  Filmstreifen */
-    .project-card-carousel {
-        height: 440px;
-        min-height: 440px;
+        .project-card-carousel {
+        height: 380px;
+        min-height: 380px;
     }
     
     .carousel-image {
-        height: 160px;
+        height: 130px;
     }
     
     .carousel-header h3 {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     
     .carousel-body li {
-        font-size: 0.7rem;
-    }    
+        font-size: 0.65rem;
+    }
+    
+    .carousel-tag {
+        font-size: 0.5rem;
+    }
 }
 
