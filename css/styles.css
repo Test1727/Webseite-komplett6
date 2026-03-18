@@ -896,7 +896,7 @@ textarea {
     background: #1a4a7a;
     border: 1px solid #0a3d62;
     color: #e0f7ff;
-    padding: 10px;
+   padding: 20px 10px 10px 10px;
     border-radius: 6px;
     outline: none;
 }
