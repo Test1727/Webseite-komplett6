@@ -291,6 +291,22 @@ nav ul li a {
         height: 8px;
     }
 
+              .carousel-slide {
+                width: calc(100% - 0px);
+                border-right: none;
+            }
+            
+            .safety-film-left, 
+            .safety-film-right {
+                display: none;
+            }
+            
+            .safety-film-center {
+                display: block;
+                font-size: 8px;
+                opacity: 0.3;
+            }
+
 /* Anpassungen Kontaktformular */
 
     .encryption-status {
