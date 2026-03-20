@@ -28,6 +28,7 @@
 
 html {
     scroll-behavior: smooth;   
+    scroll-margin-top: 70px;   
 }
 
 
@@ -1558,7 +1559,7 @@ footer p {
    ======================================== */
 
 section[id] {
-    scroll-margin-top: 70px;
+    scroll-margin-top: 100px;
 }
 
 
