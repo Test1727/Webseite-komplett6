@@ -358,6 +358,10 @@ nav ul li a {
         word-break: break-all !important;
     }
 
+        section[id] {
+        scroll-margin-top: 80px;
+    }
+
 
 }
 
