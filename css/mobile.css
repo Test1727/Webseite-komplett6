@@ -417,6 +417,11 @@ nav ul li a {
         font-size: 0.7rem !important;
     }
 
+h4[data-i18n="exp1_subtitle_strategic"] {
+        margin-top: 0.75rem !important;
+        font-size: 1rem;
+    }
+    
   /*  Filmstreifen */
         .project-card-carousel {
         height: 380px;
