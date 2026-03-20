@@ -89,6 +89,15 @@
         padding: 2px 24px 2px 10px !important;
         line-height: 1.2 !important;
         border-width: 1.5px !important;
+            /* ===== NEU: Verhindert natives Select-Fenster ===== */
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><polygon points="6,9 1,4 11,4" fill="%23333"/></svg>') !important;
+    background-repeat: no-repeat !important;
+    background-position: right 10px center !important;
+    background-size: 10px !important;
+    cursor: pointer !important;        
     }
     
     .resume-btn {
