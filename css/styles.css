@@ -1555,19 +1555,11 @@ footer p {
 
 
 /* ========================================
-   SCROLL VERHALTEN - FIX
+   SCROLL VERHALTEN - RESPONSIVE
    ======================================== */
 
 section[id] {
-    scroll-margin-top: 70px;
+    scroll-margin-top: clamp(60px, 8vh, 90px);
 }
-
-
-
-
-
-
-
-
 
 
