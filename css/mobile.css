@@ -352,6 +352,12 @@ nav ul li a {
     }
 
 
+    .contact-box .contact-content a,
+    .contact-content a {
+        word-break: break-all !important;
+    }
+
+
 }
 
 
@@ -374,8 +380,6 @@ nav ul li a {
                 display: block;
             }
         }
-
-
 
     
 }
