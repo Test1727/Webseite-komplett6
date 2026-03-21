@@ -893,6 +893,7 @@ section {
             padding: 40px 0 40px 0;
             backdrop-filter: blur(2px);
             z-index: 5;
+            max-width: 1000px !important;
         }
         
         /* Obere Perforation */
