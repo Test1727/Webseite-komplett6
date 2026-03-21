@@ -37,13 +37,7 @@
         max-width: 1000px !important;
         margin: 0 auto !important;
     }
-    
-    .projects-carousel .carousel-container {
-        max-width: 900px !important;
-        margin: 0 auto !important;
-        justify-content: center !important;
-    }
-    
+
     
     * {
         box-sizing: border-box !important;
