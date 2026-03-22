@@ -722,64 +722,37 @@
                                     </div>
 
 
-                                    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const textarea = document.getElementById("contact-message");
-    const languageSwitch = document.getElementById("language-switch");
-    
-    if (textarea) {
-        // Nachrichten in beiden Sprachen
-        const messages = {
-            de: [
-                "🧠 Initialisiere Quantenkanal...",
-                "⚡ Synchronisiere Qubit-Verbindung...",
-                "🔒 Neuronale Verschlüsselung aktiv...",
-                "📡 Quantenverschlüsselung läuft...",
-                "🔄 Verschlüssele Nachricht in Echtzeit..."
-            ],
-            en: [
-                "🧠 Initializing quantum channel...",
-                "⚡ Synchronizing qubit connection...",
-                "🔒 Neural encryption active...",
-                "📡 Quantum encryption running...",
-                "🔄 Encrypting message in real-time..."
-            ]
-        };
-        
-        let currentLang = document.documentElement.lang || 'de';
-        let index = 0;
-        let rotatorActive = true;
 
-        function updatePlaceholder() {
-            if (rotatorActive && document.activeElement !== textarea && textarea.value === "") {
-                textarea.placeholder = messages[currentLang][index];
-                index = (index + 1) % messages[currentLang].length;
-            }
-        }
+                                         <script>
+                                    // Warten bis das DOM vollständig geladen ist
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        const textarea = document.getElementById("contact-message");
+                                        
+                                        // Nur ausführen, wenn Textarea existiert
+                                        if (textarea) {
+                                            const messages = [
+                                                "🧠 Initialisiere Quantenkanal...",
+                                                "⚡ Synchronisiere Qubit-Verbindung...",
+                                                "🔒 Neuronale Verschlüsselung aktiv...",
+                                                "📡 Quantenverschlüsselung läuft...",
+                                                "🔄 Verschlüssele Nachricht in Echtzeit..."
+                                            ];
 
-        // Rotator starten
-        setInterval(updatePlaceholder, 3000);
-        
-        // Übersetzung für Placeholder DEAKTIVIEREN
-        // Entferne data-i18n-placeholder Attribut, damit Übersetzung nicht eingreift
-        textarea.removeAttribute('data-i18n-placeholder');
-        
-        // Initialen Placeholder setzen
-        textarea.placeholder = messages[currentLang][0];
-        index = 1;
-        
-        // Bei Sprachwechsel
-        if (languageSwitch) {
-            languageSwitch.addEventListener('change', function(e) {
-                currentLang = e.target.value;
-                index = 0;
-                rotatorActive = true;
-                updatePlaceholder();
-            });
-        }
-    }
-});
-</script>
+                                            let index = 0;
+
+                                            // Placeholder alle 3 Sekunden wechseln
+                                            setInterval(() => {
+                                                // Nur wechseln, wenn Textarea NICHT fokussiert ist UND leer ist
+                                                if (document.activeElement !== textarea && textarea.value === "") {
+                                                    textarea.placeholder = messages[index];
+                                                    index = (index + 1) % messages.length;
+                                                }
+                                            }, 3000); // 3000ms = 3 Sekunden
+                                        }
+                                    });
+                                    </script>
+
+
 
 
 
