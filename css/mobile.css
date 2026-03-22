@@ -1,4 +1,604 @@
 /* ========================================
+   MOBILE & TABLET OPTIMIERUNGEN
+   ======================================== */
+
+/* ========================================
+   SMARTPHONE OPTIMIERUNGEN (max-width: 768px)
+   ======================================== */
+
+@media (max-width: 768px) {
+    
+    /* === BASIS-TYPOGRAFIE KOMPAKTER === */
+    body {
+        font-size: 15px;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.3rem; }
+    h4 { font-size: 1.1rem; }
+    
+    p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* === SECTIONS KOMPAKTER === */
+    section {
+        padding: 40px 0 !important;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 0 12px;
+    }
+    
+    /* === SEKTIONSÜBERSCHRIFTEN === */
+    .section-title {
+        font-size: 1.6rem !important;
+        margin-bottom: 1.5rem !important;
+        padding-bottom: 0.6rem !important;
+    }
+    
+    .section-title::after {
+        width: 50px !important;
+        height: 3px !important;
+    }
+    
+    /* === HEADER & NAVIGATION === */
+    .logo {
+        display: none !important;
+    }
+    
+    header {
+        padding: 0.5rem 0 !important;
+    }
+    
+    header .container {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    nav {
+        width: 100%;
+        order: 1;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 12px;
+    }
+    
+    nav ul li {
+        margin: 0 !important;
+    }
+    
+    nav ul li a {
+        font-size: 0.8rem !important;
+        padding: 4px 10px !important;
+        white-space: nowrap;
+    }
+    
+    .header-right {
+        order: 2;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .language-selector select,
+    .resume-btn {
+        height: 32px !important;
+        font-size: 0.7rem !important;
+        padding: 4px 12px !important;
+    }
+    
+    .language-selector select {
+        padding-right: 24px !important;
+    }
+    
+    /* === HERO SECTION === */
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 80px !important;
+    }
+    
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    .hero-content {
+        order: 2;
+        margin-top: 20px !important;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.3rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .hero-image {
+        order: 1;
+        margin-top: 0 !important;
+    }
+    
+    .profile-image {
+        width: 160px !important;
+        height: 160px !important;
+        margin-top: 0 !important;
+        border-width: 3px;
+    }
+    
+    .hero-brain {
+        display: none !important;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 25px;
+    }
+    
+    .hero-buttons .btn {
+        min-width: 200px;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    
+    /* === ABOUT SECTION === */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
+    }
+    
+    .about-text p[style*="font-size: 1.25rem"] {
+        font-size: 1.1rem !important;
+        margin-bottom: 1.2rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .about-details > div:last-child,
+    .about-details .detail-item:last-child {
+        margin-top: 2rem !important;
+    }
+    
+    .interests-heading {
+        margin-top: 20px;
+    }
+    
+    /* === TIMELINE (EXPERIENCE) === */
+    .timeline::after {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 20px;
+    }
+    
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+    
+    .timeline-item::after,
+    .timeline-item:nth-child(even)::after {
+        left: 10px !important;
+        right: auto !important;
+        transform: none;
+    }
+    
+    .timeline-date {
+        position: relative;
+        top: auto;
+        width: auto;
+        text-align: left;
+        margin-bottom: 10px;
+        right: auto !important;
+        left: auto !important;
+    }
+    
+    .timeline-content {
+        padding: 15px 20px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .timeline-content ul li {
+        font-size: 0.9rem;
+    }
+    
+    /* === SKILLS SECTION === */
+    .skills-category h3 {
+        font-size: 1.3rem;
+    }
+    
+    .technical-skills,
+    .soft-skills,
+    .language-skills,
+    .additional-skills-tiles {
+        grid-template-columns: 1fr;
+    }
+    
+    .skill-item {
+        padding: 15px;
+    }
+    
+    .skill-name {
+        font-size: 0.9rem;
+    }
+    
+    .skill-percentage {
+        font-size: 0.85rem;
+    }
+    
+    .soft-skill-icon {
+        font-size: 24px;
+    }
+    
+    .soft-skill-name {
+        font-size: 0.95rem;
+    }
+    
+    .language-name {
+        font-size: 0.95rem;
+    }
+    
+    .star-rating {
+        font-size: 18px;
+    }
+    
+    .skill-tile {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    /* === FILMSTREIFEN === */
+    .projects-carousel {
+        padding: 20px 0 20px 0 !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .projects-carousel::before,
+    .projects-carousel::after {
+        height: 12px !important;
+        background: repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 12px,
+            rgba(192, 168, 123, 0.8) 12px,
+            rgba(192, 168, 123, 0.8) 18px
+        ) !important;
+    }
+    
+    .projects-carousel::before {
+        top: -6px !important;
+    }
+    
+    .projects-carousel::after {
+        bottom: -6px !important;
+    }
+    
+    .projects-carousel .carousel-container {
+        margin: 0 10px !important;
+        padding: 10px 0 !important;
+    }
+    
+    .projects-carousel .carousel-container::before {
+        font-size: 9px !important;
+        top: -12px !important;
+        letter-spacing: 1px !important;
+    }
+    
+    .safety-film-left,
+    .safety-film-right {
+        display: none !important;
+    }
+    
+    .safety-film-center {
+        display: block !important;
+        font-size: 8px !important;
+        bottom: 12px !important;
+        padding: 1px 4px !important;
+        opacity: 0.6 !important;
+    }
+    
+    .carousel-slide {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        min-width: 100% !important;
+        border-right: none !important;
+    }
+    
+    .carousel-slide:last-child {
+        border-right: none;
+    }
+    
+    .carousel-slide:hover {
+        transform: translateY(-2px) !important;
+    }
+    
+    .project-card-carousel {
+        height: auto !important;
+        min-height: 400px !important;
+        max-height: none !important;
+    }
+    
+    .project-card-carousel:hover {
+        transform: scale(1.01) !important;
+    }
+    
+    .carousel-header {
+        padding: 0.8rem !important;
+    }
+    
+    .carousel-header h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+    
+    .carousel-header p {
+        font-size: 0.65rem !important;
+        margin: 0.2rem 0 0 0 !important;
+    }
+    
+    .carousel-image {
+        height: 160px !important;
+    }
+    
+    .carousel-body {
+        padding: 0.8rem !important;
+    }
+    
+    .carousel-body li {
+        font-size: 0.7rem !important;
+        margin-bottom: 0.4rem !important;
+        padding-left: 1rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .carousel-tags {
+        padding: 0.6rem 0.8rem 0.8rem !important;
+        gap: 0.3rem !important;
+    }
+    
+    .carousel-tag {
+        font-size: 0.55rem !important;
+        padding: 0.15rem 0.5rem !important;
+    }
+    
+    .carousel-button {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 1rem !important;
+    }
+    
+    .carousel-button.prev {
+        left: 5px !important;
+    }
+    
+    .carousel-button.next {
+        right: 5px !important;
+    }
+    
+    .carousel-button:hover {
+        transform: translateY(-50%) scale(1.05) !important;
+    }
+    
+    .carousel-dots {
+        gap: 8px !important;
+        margin-top: 15px !important;
+    }
+    
+    .carousel-dot {
+        width: 8px !important;
+        height: 8px !important;
+    }
+    
+    .carousel-dot.active {
+        transform: scale(1.2) !important;
+    }
+    
+    /* === CONTACT SECTION === */
+    .contact-layout {
+        flex-direction: column;
+    }
+    
+    .contact-left-column,
+    .contact-right-column {
+        padding-right: 0;
+        width: 100%;
+    }
+    
+    .contact-textbox,
+    .contact-form-container {
+        padding: 1rem;
+    }
+    
+    .contact-textbox h3,
+    .contact-form-container h3 {
+        font-size: 1.2rem;
+    }
+    
+    .contact-content p,
+    .contact-content a {
+        font-size: 0.85rem;
+        word-break: break-all;
+    }
+    
+    .encryption-status {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .faux-percentage {
+        margin-left: 0;
+        width: 100%;
+        font-size: 0.7rem;
+    }
+    
+    .contact-form textarea {
+        height: 120px;
+        font-size: 0.9rem;
+        padding-top: 30px;
+    }
+    
+    .captcha-container .captcha-question p {
+        font-size: 0.85rem !important;
+    }
+    
+    #captcha-answer {
+        height: 50px;
+        font-size: 0.7rem;
+    }
+    
+    .map-section {
+        margin-top: 1rem;
+    }
+    
+    .map-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    #map {
+        height: 300px !important;
+    }
+    
+    /* === FOOTER === */
+    footer {
+        padding: 1.5rem 0;
+    }
+    
+    footer p {
+        font-size: 0.8rem;
+    }
+}
+
+/* ========================================
+   EXTRA KLEINE SMARTPHONES (bis 480px)
+   ======================================== */
+
+@media (max-width: 480px) {
+    
+    body {
+        font-size: 14px;
+    }
+    
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+    
+    .section-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .section-title::after {
+        width: 50px !important;
+    }
+    
+    nav ul li a {
+        font-size: 0.7rem !important;
+        padding: 3px 8px !important;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.1rem;
+    }
+    
+    .profile-image {
+        width: 140px !important;
+        height: 140px !important;
+    }
+    
+    .hero-buttons .btn {
+        min-width: 180px;
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .about-text p[style*="font-size: 1.25rem"] {
+        font-size: 1rem !important;
+    }
+    
+    /* Filmstreifen */
+    .project-card-carousel {
+        min-height: 360px !important;
+    }
+    
+    .carousel-image {
+        height: 140px !important;
+    }
+    
+    .carousel-header {
+        padding: 0.6rem !important;
+    }
+    
+    .carousel-header h3 {
+        font-size: 0.9rem !important;
+    }
+    
+    .carousel-header p {
+        font-size: 0.6rem !important;
+    }
+    
+    .carousel-body {
+        padding: 0.6rem !important;
+    }
+    
+    .carousel-body li {
+        font-size: 0.65rem !important;
+        margin-bottom: 0.3rem !important;
+    }
+    
+    .carousel-tags {
+        padding: 0.5rem 0.6rem 0.6rem !important;
+    }
+    
+    .carousel-tag {
+        font-size: 0.5rem !important;
+        padding: 0.1rem 0.4rem !important;
+    }
+    
+    .safety-film-center {
+        font-size: 7px !important;
+        bottom: 10px !important;
+    }
+    
+    .carousel-button {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    h4[data-i18n="exp1_subtitle_strategic"] {
+        margin-top: 0.75rem !important;
+        font-size: 1rem;
+    }
+}
+
+/* ========================================
    TABLET OPTIMIERUNGEN (769px - 992px)
    ======================================== */
 
@@ -223,16 +823,13 @@
     .star-rating {
         font-size: 20px;
     }
-
-
-
- /* === FILMSTREIFEN BASIS === */
+    
+    /* === FILMSTREIFEN === */
     .projects-carousel {
         padding: 30px 0 30px 0 !important;
         margin: 1.5rem 0 !important;
     }
     
-    /* Obere und untere Perforation - mittlere Größe */
     .projects-carousel::before,
     .projects-carousel::after {
         height: 16px !important;
@@ -253,20 +850,17 @@
         bottom: -8px !important;
     }
     
-    /* Carousel Container - mehr Platz für Buttons */
     .projects-carousel .carousel-container {
         margin: 0 40px !important;
         padding: 15px 0 !important;
     }
     
-    /* Kodak-Schriftzug - mittlere Größe */
     .projects-carousel .carousel-container::before {
         font-size: 11px !important;
         top: -14px !important;
         letter-spacing: 1.5px !important;
     }
     
-    /* SAFETY FILM Schriftzüge - alle sichtbar, aber angepasst */
     .safety-film-left,
     .safety-film-right,
     .safety-film-center {
@@ -284,11 +878,6 @@
         right: 15px !important;
     }
     
-    .safety-film-center {
-        bottom: 18px !important;
-    }
-    
-    /* === CAROUSEL SLIDES - 2 Slides nebeneinander === */
     .carousel-slide {
         width: calc(50% - 2px) !important;
         flex: 0 0 auto !important;
@@ -305,7 +894,6 @@
         transform: translateY(-3px) !important;
     }
     
-    /* === PROJECT CARDS === */
     .project-card-carousel {
         height: 480px !important;
         min-height: 480px !important;
@@ -315,7 +903,6 @@
         transform: scale(1.01) !important;
     }
     
-    /* Card Header */
     .carousel-header {
         padding: 1rem !important;
     }
@@ -330,12 +917,10 @@
         margin: 0.2rem 0 0 0 !important;
     }
     
-    /* Card Image */
     .carousel-image {
         height: 200px !important;
     }
     
-    /* Card Body */
     .carousel-body {
         padding: 0.8rem !important;
     }
@@ -347,7 +932,6 @@
         line-height: 1.3 !important;
     }
     
-    /* Tags */
     .carousel-tags {
         padding: 0.7rem 0.8rem 0.9rem !important;
         gap: 0.35rem !important;
@@ -358,7 +942,6 @@
         padding: 0.15rem 0.5rem !important;
     }
     
-    /* === NAVIGATIONSBUTTONS - Tablet-optimiert === */
     .carousel-button {
         width: 36px !important;
         height: 36px !important;
@@ -378,7 +961,6 @@
         transform: translateY(-50%) scale(1.08) !important;
     }
     
-    /* === DOTS NAVIGATION === */
     .carousel-dots {
         gap: 10px !important;
         margin-top: 18px !important;
@@ -392,16 +974,6 @@
     .carousel-dot.active {
         transform: scale(1.25) !important;
     }
-
-
-
-
-
-
-
-   
-    
-    
     
     /* === CONTACT SECTION === */
     .contact-layout {
@@ -467,6 +1039,9 @@
     }
 }
 
+/* ========================================
+   TABLET LANDSCAPE (900px - 992px)
+   ======================================== */
 
 @media (min-width: 900px) and (max-width: 992px) {
     
@@ -495,708 +1070,4 @@
     .carousel-tag {
         font-size: 0.65rem !important;
     }
-}
-
-
-/* Smartphone & Tablet (bis 768px) */
-/* ========================================
-   SMARTPHONE OPTIMIERUNGEN (max-width: 768px)
-   ======================================== */
-
-@media (max-width: 768px) {
-    
-    /* === BASIS-TYPOGRAFIE KOMPAKTER === */
-    body {
-        font-size: 15px;
-    }
-    
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.6rem; }
-    h3 { font-size: 1.3rem; }
-    h4 { font-size: 1.1rem; }
-    
-    p {
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
-    
-    /* === SECTIONS KOMPAKTER === */
-    section {
-        padding: 40px 0 !important;
-    }
-    
-    .container {
-        width: 95%;
-        padding: 0 12px;
-    }
-    
-    /* === SEKTIONSÜBERSCHRIFTEN === */
-    .section-title {
-        font-size: 1.6rem !important;
-        margin-bottom: 1.5rem !important;
-        padding-bottom: 0.6rem !important;
-    }
-    
-    .section-title::after {
-        width: 50px !important;
-        height: 3px !important;
-    }
-    
-    /* === HEADER & NAVIGATION === */
-    .logo {
-        display: none !important;
-    }
-    
-    header {
-        padding: 0.5rem 0 !important;
-    }
-    
-    header .container {
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    nav {
-        width: 100%;
-        order: 1;
-    }
-    
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px 12px;
-    }
-    
-    nav ul li {
-        margin: 0 !important;
-    }
-    
-    nav ul li a {
-        font-size: 0.8rem !important;
-        padding: 4px 10px !important;
-        white-space: nowrap;
-    }
-    
-    .header-right {
-        order: 2;
-        justify-content: center;
-        gap: 10px;
-    }
-    
-    .language-selector select,
-    .resume-btn {
-        height: 32px !important;
-        font-size: 0.7rem !important;
-        padding: 4px 12px !important;
-    }
-    
-    .language-selector select {
-        padding-right: 24px !important;
-    }
-    
-    /* === HERO SECTION === */
-    .hero {
-        height: auto;
-        min-height: 100vh;
-        padding-top: 80px !important;
-    }
-    
-    .hero .container {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 20px;
-    }
-    
-    .hero-content {
-        order: 2;
-        margin-top: 20px !important;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-    
-    .hero-content h2 {
-        font-size: 1.3rem;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-    }
-    
-    .hero-image {
-        order: 1;
-        margin-top: 0 !important;
-    }
-    
-    .profile-image {
-        width: 160px !important;
-        height: 160px !important;
-        margin-top: 0 !important;
-        border-width: 3px;
-    }
-    
-    .hero-brain {
-        display: none !important;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        margin-top: 25px;
-    }
-    
-    .hero-buttons .btn {
-        min-width: 200px;
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-    
-    /* === ABOUT SECTION === */
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .about-text p {
-        font-size: 0.95rem;
-    }
-    
-    /* Einleitungssatz anpassen */
-    .about-text p[style*="font-size: 1.25rem"] {
-        font-size: 1.1rem !important;
-        margin-bottom: 1.2rem !important;
-        line-height: 1.4 !important;
-    }
-    
-    .about-details > div:last-child,
-    .about-details .detail-item:last-child {
-        margin-top: 2rem !important;
-    }
-    
-    .interests-heading {
-        margin-top: 20px;
-    }
-    
-    /* === TIMELINE (EXPERIENCE) === */
-    .timeline::after {
-        left: 20px;
-    }
-    
-    .timeline-item {
-        width: 100%;
-        padding-left: 50px;
-        padding-right: 20px;
-    }
-    
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        left: 0;
-    }
-    
-    .timeline-item::after,
-    .timeline-item:nth-child(even)::after {
-        left: 10px !important;
-        right: auto !important;
-        transform: none;
-    }
-    
-    .timeline-date {
-        position: relative;
-        top: auto;
-        width: auto;
-        text-align: left;
-        margin-bottom: 10px;
-        right: auto !important;
-        left: auto !important;
-    }
-    
-    .timeline-content {
-        padding: 15px 20px;
-    }
-    
-    .timeline-content h3 {
-        font-size: 1.2rem;
-    }
-    
-    .timeline-content ul li {
-        font-size: 0.9rem;
-    }
-    
-    /* === SKILLS SECTION === */
-    .skills-category h3 {
-        font-size: 1.3rem;
-    }
-    
-    .technical-skills,
-    .soft-skills,
-    .language-skills,
-    .additional-skills-tiles {
-        grid-template-columns: 1fr;
-    }
-    
-    .skill-item {
-        padding: 15px;
-    }
-    
-    .skill-name {
-        font-size: 0.9rem;
-    }
-    
-    .skill-percentage {
-        font-size: 0.85rem;
-    }
-    
-    .soft-skill-icon {
-        font-size: 24px;
-    }
-    
-    .soft-skill-name {
-        font-size: 0.95rem;
-    }
-    
-    .language-name {
-        font-size: 0.95rem;
-    }
-    
-    .star-rating {
-        font-size: 18px;
-    }
-    
-    .skill-tile {
-        padding: 12px;
-        font-size: 0.9rem;
-    }
-
-
-
-   
-
-    
-    /* === FILMSTREIFEN BASIS === */
-    .projects-carousel {
-        padding: 20px 0 20px 0 !important;
-        margin: 1rem 0 !important;
-    }
-    
-    /* Obere und untere Perforation verkleinern */
-    .projects-carousel::before,
-    .projects-carousel::after {
-        height: 12px !important;
-        background: repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 12px,
-            rgba(192, 168, 123, 0.8) 12px,
-            rgba(192, 168, 123, 0.8) 18px
-        ) !important;
-    }
-    
-    .projects-carousel::before {
-        top: -6px !important;
-    }
-    
-    .projects-carousel::after {
-        bottom: -6px !important;
-    }
-    
-    /* Carousel Container */
-    .projects-carousel .carousel-container {
-        margin: 0 10px !important;
-        padding: 10px 0 !important;
-    }
-    
-    /* Kodak-Schriftzug verkleinern */
-    .projects-carousel .carousel-container::before {
-        font-size: 9px !important;
-        top: -12px !important;
-        letter-spacing: 1px !important;
-    }
-    
-    /* SAFETY FILM Schriftzüge - anpassen/ausblenden */
-    .safety-film-left,
-    .safety-film-right {
-        display: none !important;
-    }
-    
-    .safety-film-center {
-        display: block !important;
-        font-size: 8px !important;
-        bottom: 12px !important;
-        padding: 1px 4px !important;
-        opacity: 0.6 !important;
-    }
-    
-    /* === CAROUSEL SLIDES === */
-    .carousel-slide {
-        width: 100% !important;
-        flex: 0 0 100% !important;
-        min-width: 100% !important;
-        border-right: none !important;
-    }
-    
-    .carousel-slide:last-child {
-        border-right: none;
-    }
-    
-    .carousel-slide:hover {
-        transform: translateY(-2px) !important;
-    }
-    
-    /* === PROJECT CARDS === */
-    .project-card-carousel {
-        height: auto !important;
-        min-height: 400px !important;
-        max-height: none !important;
-    }
-    
-    .project-card-carousel:hover {
-        transform: scale(1.01) !important;
-    }
-    
-    /* Card Header */
-    .carousel-header {
-        padding: 0.8rem !important;
-    }
-    
-    .carousel-header h3 {
-        font-size: 1rem !important;
-        margin-bottom: 0.2rem !important;
-    }
-    
-    .carousel-header p {
-        font-size: 0.65rem !important;
-        margin: 0.2rem 0 0 0 !important;
-    }
-    
-    /* Card Image */
-    .carousel-image {
-        height: 160px !important;
-    }
-    
-    /* Card Body */
-    .carousel-body {
-        padding: 0.8rem !important;
-    }
-    
-    .carousel-body li {
-        font-size: 0.7rem !important;
-        margin-bottom: 0.4rem !important;
-        padding-left: 1rem !important;
-        line-height: 1.3 !important;
-    }
-    
-    /* Tags */
-    .carousel-tags {
-        padding: 0.6rem 0.8rem 0.8rem !important;
-        gap: 0.3rem !important;
-    }
-    
-    .carousel-tag {
-        font-size: 0.55rem !important;
-        padding: 0.15rem 0.5rem !important;
-    }
-    
-    /* === NAVIGATIONSBUTTONS === */
-    .carousel-button {
-        width: 32px !important;
-        height: 32px !important;
-        font-size: 1rem !important;
-    }
-    
-    .carousel-button.prev {
-        left: 5px !important;
-    }
-    
-    .carousel-button.next {
-        right: 5px !important;
-    }
-    
-    .carousel-button:hover {
-        transform: translateY(-50%) scale(1.05) !important;
-    }
-    
-    /* === DOTS NAVIGATION === */
-    .carousel-dots {
-        gap: 8px !important;
-        margin-top: 15px !important;
-    }
-    
-    .carousel-dot {
-        width: 8px !important;
-        height: 8px !important;
-    }
-    
-    .carousel-dot.active {
-        transform: scale(1.2) !important;
-    }
-
-
-
-   
-
-
-
-
-
-
-
-   
-    
-
-    /* === CONTACT SECTION === */
-    .contact-layout {
-        flex-direction: column;
-    }
-    
-    .contact-left-column,
-    .contact-right-column {
-        padding-right: 0;
-        width: 100%;
-    }
-    
-    .contact-textbox,
-    .contact-form-container {
-        padding: 1rem;
-    }
-    
-    .contact-textbox h3,
-    .contact-form-container h3 {
-        font-size: 1.2rem;
-    }
-    
-    .contact-content p,
-    .contact-content a {
-        font-size: 0.85rem;
-        word-break: break-all;
-    }
-    
-    .encryption-status {
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-    
-    .faux-percentage {
-        margin-left: 0;
-        width: 100%;
-        font-size: 0.7rem;
-    }
-    
-    .contact-form textarea {
-        height: 120px;
-        font-size: 0.9rem;
-        padding-top: 30px;
-    }
-    
-    .captcha-container .captcha-question p {
-        font-size: 0.85rem !important;
-    }
-    
-    #captcha-answer {
-        height: 50px;
-        font-size: 0.7rem;
-    }
-    
-    .map-section {
-        margin-top: 1rem;
-    }
-    
-    .map-section h3 {
-        font-size: 1.1rem;
-    }
-    
-    #map {
-        height: 300px !important;
-    }
-    
-    /* === FOOTER === */
-    footer {
-        padding: 1.5rem 0;
-    }
-    
-    footer p {
-        font-size: 0.8rem;
-    }
-}
-
-/* === EXTRA KLEINE SMARTPHONES (bis 480px) === */
-@media (max-width: 480px) {
-    body {
-        font-size: 14px;
-    }
-    
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.4rem; }
-    .section-title {
-        font-size: 1.4rem !important;
-    }
-    
-    nav ul li a {
-        font-size: 0.7rem !important;
-        padding: 3px 8px !important;
-    }
-    
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-    
-    .hero-content h2 {
-        font-size: 1.1rem;
-    }
-    
-    .profile-image {
-        width: 140px !important;
-        height: 140px !important;
-    }
-    
-    .hero-buttons .btn {
-        min-width: 180px;
-        padding: 8px 16px;
-        font-size: 0.9rem;
-    }
-    
-    .about-text p[style*="font-size: 1.25rem"] {
-        font-size: 1rem !important;
-    }
-
-
-
-
-
-       .project-card-carousel {
-        min-height: 360px !important;
-    }
-    
-    .carousel-image {
-        height: 140px !important;
-    }
-    
-    .carousel-header {
-        padding: 0.6rem !important;
-    }
-    
-    .carousel-header h3 {
-        font-size: 0.9rem !important;
-    }
-    
-    .carousel-header p {
-        font-size: 0.6rem !important;
-    }
-    
-    .carousel-body {
-        padding: 0.6rem !important;
-    }
-    
-    .carousel-body li {
-        font-size: 0.65rem !important;
-        margin-bottom: 0.3rem !important;
-    }
-    
-    .carousel-tags {
-        padding: 0.5rem 0.6rem 0.6rem !important;
-    }
-    
-    .carousel-tag {
-        font-size: 0.5rem !important;
-        padding: 0.1rem 0.4rem !important;
-    }
-    
-    .safety-film-center {
-        font-size: 7px !important;
-        bottom: 10px !important;
-    }
-    
-    .carousel-button {
-        width: 28px !important;
-        height: 28px !important;
-        font-size: 0.9rem !important;
-    }
-
-
-}
-
-
-
-
-
-
-
-
-
-/* Kleine Smartphones (bis 480px) - ZUSÄTZLICHES MEDIA QUERY */
-@media (max-width: 480px) {
-  
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-    
-    .hero-content h2 {
-        font-size: 1.2rem;
-    }
-
-    .hero-buttons .btn {
-        width: 90%;
-        padding: 12px 15px;
-    }
-    
-    .profile-image {
-        width: 150px !important;
-        height: 150px !important;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .hero-buttons .btn {
-        min-width: 200px;
-    }
-    
-    .logo {
-        font-size: 1rem !important;
-    }
-    
-    nav ul li a {
-        font-size: 0.7rem !important;
-    }
-
-    h4[data-i18n="exp1_subtitle_strategic"] {
-        margin-top: 0.75rem !important;
-        font-size: 1rem;
-    }
-
-    .section-title {
-            font-size: 1.5rem !important;   /* Noch kleiner für kleine Smartphones */
-            margin-bottom: 1.5rem !important;
-        }
-        
-        .section-title::after {
-            width: 50px !important;
-        }
-    
-    /* Filmstreifen */
-    .project-card-carousel {
-        height: 380px;
-        min-height: 380px;
-    }
-    
-    .carousel-image {
-        height: 130px;
-    }
-    
-    .carousel-header h3 {
-        font-size: 0.85rem;
-    }
-    
-    .carousel-body li {
-        font-size: 0.65rem;
-    }
-    
-    .carousel-tag {
-        font-size: 0.5rem;
-    }
-    
-
 }
