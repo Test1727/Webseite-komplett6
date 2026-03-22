@@ -983,6 +983,43 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     </script>
+
+    <script>
+// Zeigt alle geladenen CSS-Dateien in der Konsole an
+(function() {
+    console.log('=== Geladene CSS-Dateien ===');
+    const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+    stylesheets.forEach((sheet, index) => {
+        console.log(`${index + 1}. ${sheet.href || sheet.getAttribute('href')}`);
+    });
+    
+    // Zeigt auch die Reihenfolge der Styles an
+    console.log('\n=== Stylesheet-Reihenfolge (wichtig für Überschreibungen) ===');
+    const allStyles = document.styleSheets;
+    for(let i = 0; i < allStyles.length; i++) {
+        try {
+            const href = allStyles[i].href;
+            if(href) console.log(`${i}. ${href}`);
+            else console.log(`${i}. (inline oder user-agent styles)`);
+        } catch(e) {
+            console.log(`${i}. (CORS-geschützt)`);
+        }
+    }
+    
+    // Speziell für mobile.css prüfen
+    console.log('\n=== mobile.css geladen? ===');
+    const mobileCSS = document.querySelector('link[href*="mobile.css"]');
+    if(mobileCSS) {
+        console.log('✅ mobile.css ist geladen:', mobileCSS.href);
+    } else {
+        console.log('❌ mobile.css wurde NICHT gefunden!');
+    }
+})();
+</script>
+
+
+
+
     
 </body>
 </html>
