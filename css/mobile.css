@@ -1,6 +1,63 @@
-/* ========================================
-   MOBILE & TABLET OPTIMIERUNGEN
-   ======================================== */
+/* TABLET (769px - 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+    body, html {
+        background-color: #112c4b !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+    
+    .hero {
+        background-color: #112c4b !important;
+        width: 100vw !important;
+        max-width: 100% !important;
+    }
+    
+    .hero .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 20px !important;
+        margin: 0 !important;
+    }
+
+.projects-carousel .carousel-container {
+    display: flex !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    justify-content: flex-start !important; /* Statt center */
+    gap: 20px !important;
+}
+
+.carousel-slide {
+    flex: 0 0 300px !important;
+    width: 300px !important;
+    min-width: 300px !important;
+    max-width: 300px !important;
+}
+
+
+    .projects-carousel {
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+    }
+
+    
+    * {
+        box-sizing: border-box !important;
+    }
+
+        .technical-skills {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .skill-item {
+        width: 100% !important;
+        max-width: 100% !important;
+    }   
+}
+
+
+
 
 /* ========================================
    SMARTPHONE OPTIMIERUNGEN (max-width: 768px)
@@ -166,6 +223,7 @@
         font-size: 0.95rem;
     }
     
+    /* Einleitungssatz anpassen */
     .about-text p[style*="font-size: 1.25rem"] {
         font-size: 1.1rem !important;
         margin-bottom: 1.2rem !important;
@@ -271,54 +329,13 @@
         font-size: 0.9rem;
     }
     
-    /* === FILMSTREIFEN === */
+    /* === PROJECTS CAROUSEL === */
     .projects-carousel {
-        padding: 20px 0 20px 0 !important;
-        margin: 1rem 0 !important;
-    }
-    
-    .projects-carousel::before,
-    .projects-carousel::after {
-        height: 12px !important;
-        background: repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 12px,
-            rgba(192, 168, 123, 0.8) 12px,
-            rgba(192, 168, 123, 0.8) 18px
-        ) !important;
-    }
-    
-    .projects-carousel::before {
-        top: -6px !important;
-    }
-    
-    .projects-carousel::after {
-        bottom: -6px !important;
+        padding: 20px 0;
     }
     
     .projects-carousel .carousel-container {
-        margin: 0 10px !important;
-        padding: 10px 0 !important;
-    }
-    
-    .projects-carousel .carousel-container::before {
-        font-size: 9px !important;
-        top: -12px !important;
-        letter-spacing: 1px !important;
-    }
-    
-    .safety-film-left,
-    .safety-film-right {
-        display: none !important;
-    }
-    
-    .safety-film-center {
-        display: block !important;
-        font-size: 8px !important;
-        bottom: 12px !important;
-        padding: 1px 4px !important;
-        opacity: 0.6 !important;
+        margin: 0 10px;
     }
     
     .carousel-slide {
@@ -328,93 +345,96 @@
         border-right: none !important;
     }
     
-    .carousel-slide:last-child {
-        border-right: none;
-    }
-    
-    .carousel-slide:hover {
-        transform: translateY(-2px) !important;
-    }
-    
     .project-card-carousel {
-        height: auto !important;
-        min-height: 400px !important;
-        max-height: none !important;
-    }
-    
-    .project-card-carousel:hover {
-        transform: scale(1.01) !important;
-    }
-    
-    .carousel-header {
-        padding: 0.8rem !important;
-    }
-    
-    .carousel-header h3 {
-        font-size: 1rem !important;
-        margin-bottom: 0.2rem !important;
-    }
-    
-    .carousel-header p {
-        font-size: 0.65rem !important;
-        margin: 0.2rem 0 0 0 !important;
+        height: auto;
+        min-height: 420px;
     }
     
     .carousel-image {
-        height: 160px !important;
+        height: 180px;
+    }
+    
+    .carousel-header {
+        padding: 0.8rem;
+    }
+    
+    .carousel-header h3 {
+        font-size: 1rem;
+    }
+    
+    .carousel-header p {
+        font-size: 0.7rem;
     }
     
     .carousel-body {
-        padding: 0.8rem !important;
+        padding: 0.8rem;
     }
     
     .carousel-body li {
-        font-size: 0.7rem !important;
-        margin-bottom: 0.4rem !important;
-        padding-left: 1rem !important;
-        line-height: 1.3 !important;
+        font-size: 0.75rem;
+        margin-bottom: 0.4rem;
     }
     
     .carousel-tags {
-        padding: 0.6rem 0.8rem 0.8rem !important;
-        gap: 0.3rem !important;
+        padding: 0.6rem 0.8rem;
     }
     
     .carousel-tag {
-        font-size: 0.55rem !important;
-        padding: 0.15rem 0.5rem !important;
+        font-size: 0.6rem;
+        padding: 0.15rem 0.5rem;
     }
     
     .carousel-button {
-        width: 32px !important;
-        height: 32px !important;
-        font-size: 1rem !important;
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
     }
     
     .carousel-button.prev {
-        left: 5px !important;
+        left: 5px;
     }
     
     .carousel-button.next {
-        right: 5px !important;
-    }
-    
-    .carousel-button:hover {
-        transform: translateY(-50%) scale(1.05) !important;
+        right: 5px;
     }
     
     .carousel-dots {
-        gap: 8px !important;
-        margin-top: 15px !important;
+        gap: 8px;
+        margin-top: 15px;
     }
     
     .carousel-dot {
-        width: 8px !important;
-        height: 8px !important;
+        width: 8px;
+        height: 8px;
     }
     
-    .carousel-dot.active {
-        transform: scale(1.2) !important;
+    .safety-film-left,
+    .safety-film-right {
+        display: none;
+    }
+    
+    .safety-film-center {
+        display: block;
+        font-size: 8px;
+        bottom: 10px;
+        opacity: 0.6;
+    }
+    
+    .projects-carousel .carousel-container::before {
+        font-size: 9px;
+        top: -12px;
+    }
+    
+    .projects-carousel::before,
+    .projects-carousel::after {
+        height: 12px;
+        background: repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 12px,
+            rgba(192, 168, 123, 0.8) 12px,
+            rgba(192, 168, 123, 0.8) 18px
+        );
     }
     
     /* === CONTACT SECTION === */
@@ -492,26 +512,16 @@
     }
 }
 
-/* ========================================
-   EXTRA KLEINE SMARTPHONES (bis 480px)
-   ======================================== */
-
+/* === EXTRA KLEINE SMARTPHONES (bis 480px) === */
 @media (max-width: 480px) {
-    
     body {
         font-size: 14px;
     }
     
     h1 { font-size: 1.8rem; }
     h2 { font-size: 1.4rem; }
-    
     .section-title {
         font-size: 1.4rem !important;
-        margin-bottom: 1.5rem !important;
-    }
-    
-    .section-title::after {
-        width: 50px !important;
     }
     
     nav ul li a {
@@ -542,532 +552,104 @@
         font-size: 1rem !important;
     }
     
-    /* Filmstreifen */
     .project-card-carousel {
-        min-height: 360px !important;
+        min-height: 380px;
     }
     
     .carousel-image {
-        height: 140px !important;
-    }
-    
-    .carousel-header {
-        padding: 0.6rem !important;
+        height: 150px;
     }
     
     .carousel-header h3 {
-        font-size: 0.9rem !important;
-    }
-    
-    .carousel-header p {
-        font-size: 0.6rem !important;
-    }
-    
-    .carousel-body {
-        padding: 0.6rem !important;
+        font-size: 0.9rem;
     }
     
     .carousel-body li {
-        font-size: 0.65rem !important;
-        margin-bottom: 0.3rem !important;
+        font-size: 0.7rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Kleine Smartphones (bis 480px) - ZUSÄTZLICHES MEDIA QUERY */
+@media (max-width: 480px) {
+  
+    .hero-content h1 {
+        font-size: 2.2rem;
     }
     
-    .carousel-tags {
-        padding: 0.5rem 0.6rem 0.6rem !important;
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .hero-buttons .btn {
+        width: 90%;
+        padding: 12px 15px;
     }
     
-    .carousel-tag {
-        font-size: 0.5rem !important;
-        padding: 0.1rem 0.4rem !important;
+    .profile-image {
+        width: 150px !important;
+        height: 150px !important;
     }
     
-    .safety-film-center {
-        font-size: 7px !important;
-        bottom: 10px !important;
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
     }
     
-    .carousel-button {
-        width: 28px !important;
-        height: 28px !important;
-        font-size: 0.9rem !important;
+    .hero-buttons .btn {
+        min-width: 200px;
     }
     
+    .logo {
+        font-size: 1rem !important;
+    }
+    
+    nav ul li a {
+        font-size: 0.7rem !important;
+    }
+
     h4[data-i18n="exp1_subtitle_strategic"] {
         margin-top: 0.75rem !important;
         font-size: 1rem;
     }
-}
-
-/* ========================================
-   TABLET OPTIMIERUNGEN (769px - 992px)
-   ======================================== */
-
-@media (min-width: 769px) and (max-width: 992px) {
     
-    /* === BASIS-TYPOGRAFIE === */
-    body {
-        font-size: 15px;
-    }
-    
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.4rem; }
-    
-    .container {
-        width: 90%;
-        max-width: 960px;
-        padding: 0 20px;
-    }
-    
-    /* === SEKTIONSÜBERSCHRIFTEN === */
-    .section-title {
-        font-size: 2rem !important;
-        margin-bottom: 2.5rem !important;
-    }
-    
-    .section-title::after {
-        width: 70px;
-        height: 3px;
-    }
-    
-    /* === HEADER & NAVIGATION === */
-    header {
-        padding: 0.8rem 0;
-    }
-    
-    .logo {
-        font-size: 1.5rem;
-    }
-    
-    nav ul li {
-        margin-left: 18px;
-    }
-    
-    nav ul li a {
-        font-size: 0.9rem;
-    }
-    
-    .language-selector select,
-    .resume-btn {
-        height: 34px;
-        font-size: 0.8rem;
-        padding: 5px 12px;
-    }
-    
-    .language-selector select {
-        padding-right: 28px;
-    }
-    
-    /* === HERO SECTION === */
-    .hero {
-        height: auto;
-        min-height: 90vh;
-        padding: 80px 0 60px;
-    }
-    
-    .hero .container {
-        flex-direction: column;
-        text-align: center;
-        gap: 40px;
-    }
-    
-    .hero-content {
-        margin-top: 0;
-        max-width: 100%;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-    
-    .hero-content h2 {
-        font-size: 1.6rem;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .hero-buttons {
-        justify-content: center;
-    }
-    
-    .profile-image {
-        width: 220px;
-        height: 220px;
-        margin-top: 0;
-    }
-    
-    .hero-brain {
-        opacity: 0.2;
-        left: -50%;
-    }
-    
-    /* === ABOUT SECTION === */
-    .about-content {
-        grid-template-columns: 2fr 1fr;
-        gap: 40px;
-    }
-    
-    .about-text p {
-        font-size: 0.95rem;
-    }
-    
-    .about-text p[style*="font-size: 1.25rem"] {
-        font-size: 1.1rem !important;
-    }
-    
-    .about-details ul li {
-        font-size: 0.9rem;
-    }
-    
-    .about-details > div:last-child,
-    .about-details .detail-item:last-child {
-        margin-top: 4rem !important;
-    }
-    
-    /* === TIMELINE (EXPERIENCE) === */
-    .timeline {
-        max-width: 100%;
-    }
-    
-    .timeline::after {
-        left: 30px;
-    }
-    
-    .timeline-item {
-        width: 100%;
-        padding-left: 60px;
-        padding-right: 20px;
-    }
-    
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        left: 0;
-    }
-    
-    .timeline-item::after,
-    .timeline-item:nth-child(even)::after {
-        left: 20px !important;
-        right: auto !important;
-        transform: none;
-    }
-    
-    .timeline-date {
-        position: relative;
-        top: auto;
-        width: auto;
-        text-align: left;
-        margin-bottom: 10px;
-        right: auto !important;
-        left: auto !important;
-        font-size: 0.85rem;
-    }
-    
-    .timeline-content {
-        padding: 18px 25px;
-    }
-    
-    .timeline-content h3 {
-        font-size: 1.3rem;
-    }
-    
-    .timeline-content ul li {
-        font-size: 0.9rem;
-    }
-    
-    /* === SKILLS SECTION === */
-    .skills-category h3 {
-        font-size: 1.4rem;
-    }
-    
-    .technical-skills {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .soft-skills {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .language-skills {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .additional-skills-tiles {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .skill-name {
-        font-size: 0.9rem;
-    }
-    
-    .skill-percentage {
-        font-size: 0.85rem;
-    }
-    
-    .soft-skill-icon {
-        font-size: 26px;
-    }
-    
-    .soft-skill-name {
-        font-size: 0.95rem;
-    }
-    
-    .language-name {
-        font-size: 0.95rem;
-    }
-    
-    .star-rating {
-        font-size: 20px;
-    }
-    
-    /* === FILMSTREIFEN === */
-    .projects-carousel {
-        padding: 30px 0 30px 0 !important;
-        margin: 1.5rem 0 !important;
-    }
-    
-    .projects-carousel::before,
-    .projects-carousel::after {
-        height: 16px !important;
-        background: repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 16px,
-            rgba(192, 168, 123, 0.8) 16px,
-            rgba(192, 168, 123, 0.8) 24px
-        ) !important;
-    }
-    
-    .projects-carousel::before {
-        top: -8px !important;
-    }
-    
-    .projects-carousel::after {
-        bottom: -8px !important;
-    }
-    
-    .projects-carousel .carousel-container {
-        margin: 0 40px !important;
-        padding: 15px 0 !important;
-    }
-    
-    .projects-carousel .carousel-container::before {
-        font-size: 11px !important;
-        top: -14px !important;
-        letter-spacing: 1.5px !important;
-    }
-    
-    .safety-film-left,
-    .safety-film-right,
-    .safety-film-center {
-        font-size: 10px !important;
-        bottom: 18px !important;
-        padding: 2px 5px !important;
-        opacity: 0.8 !important;
-    }
-    
-    .safety-film-left {
-        left: 15px !important;
-    }
-    
-    .safety-film-right {
-        right: 15px !important;
-    }
-    
-    .carousel-slide {
-        width: calc(50% - 2px) !important;
-        flex: 0 0 auto !important;
-        min-width: 280px !important;
-        max-width: 340px !important;
-        border-right: 2px solid #ff8c42 !important;
-    }
-    
-    .carousel-slide:last-child {
-        border-right: none !important;
-    }
-    
-    .carousel-slide:hover {
-        transform: translateY(-3px) !important;
-    }
-    
+    /* Filmstreifen */
     .project-card-carousel {
-        height: 480px !important;
-        min-height: 480px !important;
-    }
-    
-    .project-card-carousel:hover {
-        transform: scale(1.01) !important;
-    }
-    
-    .carousel-header {
-        padding: 1rem !important;
-    }
-    
-    .carousel-header h3 {
-        font-size: 1.1rem !important;
-        margin-bottom: 0.2rem !important;
-    }
-    
-    .carousel-header p {
-        font-size: 0.7rem !important;
-        margin: 0.2rem 0 0 0 !important;
+        height: 380px;
+        min-height: 380px;
     }
     
     .carousel-image {
-        height: 200px !important;
-    }
-    
-    .carousel-body {
-        padding: 0.8rem !important;
-    }
-    
-    .carousel-body li {
-        font-size: 0.75rem !important;
-        margin-bottom: 0.5rem !important;
-        padding-left: 1.1rem !important;
-        line-height: 1.3 !important;
-    }
-    
-    .carousel-tags {
-        padding: 0.7rem 0.8rem 0.9rem !important;
-        gap: 0.35rem !important;
-    }
-    
-    .carousel-tag {
-        font-size: 0.6rem !important;
-        padding: 0.15rem 0.5rem !important;
-    }
-    
-    .carousel-button {
-        width: 36px !important;
-        height: 36px !important;
-        font-size: 1.1rem !important;
-        background: rgba(255, 255, 255, 0.8) !important;
-    }
-    
-    .carousel-button.prev {
-        left: 8px !important;
-    }
-    
-    .carousel-button.next {
-        right: 8px !important;
-    }
-    
-    .carousel-button:hover {
-        transform: translateY(-50%) scale(1.08) !important;
-    }
-    
-    .carousel-dots {
-        gap: 10px !important;
-        margin-top: 18px !important;
-    }
-    
-    .carousel-dot {
-        width: 10px !important;
-        height: 10px !important;
-    }
-    
-    .carousel-dot.active {
-        transform: scale(1.25) !important;
-    }
-    
-    /* === CONTACT SECTION === */
-    .contact-layout {
-        gap: 30px;
-    }
-    
-    .contact-left-column {
-        padding-right: 1.5rem;
-    }
-    
-    .contact-textbox,
-    .contact-form-container {
-        padding: 1.2rem;
-    }
-    
-    .contact-textbox h3,
-    .contact-form-container h3 {
-        font-size: 1.2rem;
-    }
-    
-    .contact-content p,
-    .contact-content a {
-        font-size: 0.85rem;
-    }
-    
-    .contact-form textarea {
         height: 130px;
-        font-size: 0.95rem;
-    }
-    
-    .encryption-status {
-        font-size: 0.7rem;
-    }
-    
-    .captcha-container .captcha-question p {
-        font-size: 0.85rem !important;
-    }
-    
-    #captcha-answer {
-        height: 50px;
-        font-size: 0.75rem;
-    }
-    
-    .map-section {
-        margin-top: 1.5rem;
-    }
-    
-    .map-section h3 {
-        font-size: 1.2rem;
-    }
-    
-    #map {
-        height: 350px !important;
-    }
-    
-    /* === FOOTER === */
-    footer {
-        padding: 1.8rem 0;
-    }
-    
-    footer p {
-        font-size: 0.85rem;
-    }
-}
-
-/* ========================================
-   TABLET LANDSCAPE (900px - 992px)
-   ======================================== */
-
-@media (min-width: 900px) and (max-width: 992px) {
-    
-    .carousel-slide {
-        min-width: 300px !important;
-        max-width: 380px !important;
-    }
-    
-    .project-card-carousel {
-        height: 500px !important;
-        min-height: 500px !important;
-    }
-    
-    .carousel-image {
-        height: 220px !important;
     }
     
     .carousel-header h3 {
-        font-size: 1.15rem !important;
+        font-size: 0.85rem;
     }
     
     .carousel-body li {
-        font-size: 0.8rem !important;
+        font-size: 0.65rem;
     }
     
     .carousel-tag {
-        font-size: 0.65rem !important;
+        font-size: 0.5rem;
     }
+    
+
 }
+
+
+
+
+
+
+
