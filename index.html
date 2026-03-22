@@ -710,7 +710,6 @@
                                         <textarea id="contact-message" 
                                                   name="message" 
                                                   rows="5" 
-                                                  required 
                                                   readonly
                                                   data-max-words="100"
                                                   data-i18n="form_message_placeholder"
@@ -749,27 +748,40 @@ document.addEventListener('DOMContentLoaded', function() {
         
         let currentLang = document.documentElement.lang || 'de';
         let index = 0;
+        let rotatorActive = true;
 
         function updatePlaceholder() {
-            if (document.activeElement !== textarea && textarea.value === "") {
+            if (rotatorActive && document.activeElement !== textarea && textarea.value === "") {
                 textarea.placeholder = messages[currentLang][index];
                 index = (index + 1) % messages[currentLang].length;
             }
         }
 
+        // Rotator starten
         setInterval(updatePlaceholder, 3000);
         
-        // Bei Sprachwechsel zurücksetzen
+        // Übersetzung für Placeholder DEAKTIVIEREN
+        // Entferne data-i18n-placeholder Attribut, damit Übersetzung nicht eingreift
+        textarea.removeAttribute('data-i18n-placeholder');
+        
+        // Initialen Placeholder setzen
+        textarea.placeholder = messages[currentLang][0];
+        index = 1;
+        
+        // Bei Sprachwechsel
         if (languageSwitch) {
             languageSwitch.addEventListener('change', function(e) {
                 currentLang = e.target.value;
                 index = 0;
+                rotatorActive = true;
                 updatePlaceholder();
             });
         }
     }
 });
 </script>
+
+
 
 
 
