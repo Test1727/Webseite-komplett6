@@ -305,6 +305,7 @@ section {
     z-index: 3;
     display: flex;
     justify-content: space-between;
+   flex-direction: row;  /* ← HIER HINZUFÜGEN */
     align-items: center;
 }
 
