@@ -25,12 +25,17 @@
         overflow-x: hidden !important;
         width: 100% !important;     
     }
+
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.4rem; }
+    h4 { font-size: 1.2rem; }
     
-    
-    h1 { font-size: clamp(2.2rem, 4vw, 2.8rem); }
+   /* h1 { font-size: clamp(2.2rem, 4vw, 2.8rem); }
     h2 { font-size: clamp(1.8rem, 3.5vw, 2.2rem); }
     h3 { font-size: clamp(1.3rem, 3vw, 1.5rem); }
-    h4 { font-size: clamp(1.1rem, 2.5vw, 1.3rem); }
+    h4 { font-size: clamp(1.1rem, 2.5vw, 1.3rem); }*/
     
     .container {
         width: 90%;
