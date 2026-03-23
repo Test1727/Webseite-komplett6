@@ -28,7 +28,7 @@
 
 /* Fügen Sie dies am Anfang Ihres CSS ein */
 html {
-    scroll-padding-top: 70px; /* Platz für den fixen Header */
+    /*scroll-padding-top: 70px; Platz für den fixen Header */
     scroll-behavior: smooth;
 }
 
