@@ -1029,36 +1029,7 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 
-    <script>
-(function() {
-    function updateScrollPadding() {
-        var header = document.querySelector('header');
-        var headerHeight = header ? header.offsetHeight : 70;
-        
-        // Für smooth scroll
-        document.documentElement.style.scrollPaddingTop = headerHeight + 'px';
-        
-        // Für alle Sections
-        var sections = document.querySelectorAll('section[id]');
-        sections.forEach(function(section) {
-            section.style.scrollMarginTop = headerHeight + 'px';
-        });
-    }
-    
-    // Bei Fenstergrößenänderung und Seitenladung
-    window.addEventListener('resize', updateScrollPadding);
-    window.addEventListener('load', updateScrollPadding);
-    
-    // Bei Klick auf Menüpunkte zusätzlich sichern
-    document.querySelectorAll('nav a').forEach(function(link) {
-        link.addEventListener('click', function() {
-            setTimeout(updateScrollPadding, 10);
-        });
-    });
-    
-    updateScrollPadding();
-})();
-</script>
+
 
 
 
