@@ -1002,32 +1002,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 
 
-    // Debug-Info für Media Queries - NUR Ihre Queries
-<script>
-(function() {
-    var debugBox = document.createElement('div');
-    debugBox.style.cssText = 'position: fixed; bottom: 10px; left: 10px; background: rgba(0,0,0,0.8); color: #0f0; font-family: monospace; font-size: 12px; padding: 6px 10px; border-radius: 5px; z-index: 9999; pointer-events: none;';
-    document.body.appendChild(debugBox);
-    
-    function updateDebug() {
-        var width = window.innerWidth;
-        var activeQuery = '';
-        
-        if (width >= 769 && width <= 992) {
-            activeQuery = '📟 TABLET (769-992px)';
-        } else if (width <= 768) {
-            activeQuery = '📱 SMARTPHONE (≤768px)';
-        } else {
-            activeQuery = '💻 DESKTOP (>992px)';
-        }
-        
-        debugBox.innerHTML = '📐 ' + width + 'px | ' + activeQuery;
-    }
-    
-    window.addEventListener('resize', updateDebug);
-    updateDebug();
-})();
-</script>
 
 
 
