@@ -34,9 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
         updateModalTranslations(e.detail.language);
     });
     
-    // Modal öffnen
+    // Modal öffnen - Button verschwindet SOFORT bei Klick
     resumeBtn.addEventListener('click', function(e) {
         e.preventDefault();
+        
+        // Download-Button sofort ausblenden
+        const downloadBtnElem = document.getElementById('download-resume');
+        if (downloadBtnElem) {
+            downloadBtnElem.style.display = 'none';
+        }
+        
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
         
@@ -383,13 +390,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target === modalElement) closeModalHandler();
         });
         
-        // NUR Download-Button ausblenden - Footer bleibt sichtbar!
-        const downloadBtnElem = document.getElementById('download-resume');
-        if (downloadBtnElem) {
-            downloadBtnElem.style.display = 'none';
-        }
-        
-        // Footer NICHT ausblenden!
+        // Download-Button wurde bereits beim Klick ausgeblendet, daher hier nicht nötig
+        // Footer bleibt sichtbar
     }
     
     // Modal schließen
