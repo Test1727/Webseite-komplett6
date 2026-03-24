@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
                 loadPromises.push(
                     pdf.getPage(pageNum).then(function(page) {
-                        const viewport = page.getViewport({ scale: 1.8 }); // Höhere Auflösung für gute Qualität
+                        const viewport = page.getViewport({ scale: 1.8 });
                         
                         const canvas = document.createElement('canvas');
                         const context = canvas.getContext('2d');
@@ -139,9 +139,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Papierschnipsel-Zerfall-Effekt
+    // Papierschnipsel-Zerfall-Effekt mit zufälligen gezackten Formen
     function startPaperShredEffect(wrapper, pageImages, container) {
         const wrapperRect = wrapper.getBoundingClientRect();
+        
+        // Verschiedene gezackte Papierriss-Formen
+        const paperShapes = [
+            'polygon(0% 5%, 8% 0%, 92% 0%, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0% 92%)',
+            'polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%)',
+            'polygon(0% 10%, 15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 90%)',
+            'polygon(5% 0%, 95% 0%, 100% 10%, 100% 90%, 95% 100%, 5% 100%, 0% 90%, 0% 10%)',
+            'polygon(0% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%)',
+            'polygon(10% 0%, 90% 0%, 100% 20%, 100% 80%, 90% 100%, 10% 100%, 0% 80%, 0% 20%)',
+            'polygon(0% 8%, 12% 0%, 88% 0%, 100% 12%, 100% 88%, 88% 100%, 12% 100%, 0% 92%)',
+            'polygon(3% 0%, 97% 0%, 100% 5%, 100% 95%, 97% 100%, 3% 100%, 0% 95%, 0% 5%)'
+        ];
         
         pageImages.forEach((page, pageIndex) => {
             const canvas = page.canvas;
@@ -169,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
             wrapper.appendChild(shredContainer);
             
             // Schnipsel erzeugen (wie zerrissene Papierstücke)
-            const shredCount = 24; // Anzahl der Schnipsel pro Seite
+            const shredCount = 32; // Mehr Schnipsel für dynamischeren Effekt
             const shreds = [];
             
             // Bild laden für Schnipsel
@@ -184,9 +196,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Zufällige Schnipsel-Positionen und -Größen
                 for (let i = 0; i < shredCount; i++) {
-                    // Zufällige Größe (40-120px breit, 30-80px hoch)
-                    const shredWidth = 40 + Math.random() * 80;
-                    const shredHeight = 30 + Math.random() * 50;
+                    // Zufällige Größe (35-110px breit, 25-70px hoch)
+                    const shredWidth = 35 + Math.random() * 75;
+                    const shredHeight = 25 + Math.random() * 45;
                     
                     // Zufällige Position im Dokument
                     const posX = Math.random() * (canvasRect.width - shredWidth);
@@ -205,6 +217,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     const shredCtx = shredCanvas.getContext('2d');
                     shredCtx.drawImage(tempCanvas, srcX, srcY, srcW, srcH, 0, 0, srcW, srcH);
                     
+                    // Zufällige gezackte Form auswählen
+                    const randomShape = paperShapes[Math.floor(Math.random() * paperShapes.length)];
+                    
+                    // Zufällige Anfangsrotation (damit Schnipsel unregelmäßig liegen)
+                    const initialRotation = (Math.random() - 0.5) * 12;
+                    
                     // DOM-Element für Schnipsel
                     const shred = document.createElement('div');
                     shred.style.position = 'absolute';
@@ -215,32 +233,34 @@ document.addEventListener('DOMContentLoaded', function() {
                     shred.style.backgroundImage = `url(${shredCanvas.toDataURL()})`;
                     shred.style.backgroundSize = 'cover';
                     shred.style.backgroundPosition = 'center';
-                    shred.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
+                    shred.style.boxShadow = '2px 3px 8px rgba(0,0,0,0.25)';
                     shred.style.borderRadius = '1px';
+                    shred.style.clipPath = randomShape;
                     shred.style.transformOrigin = 'center center';
-                    shred.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    shred.style.transform = `rotate(${initialRotation}deg)`;
+                    shred.style.transition = 'all 1.5s cubic-bezier(0.3, 0.8, 0.4, 1.1)';
                     
                     // Zufällige Flugrichtung und Rotation
                     const angle = Math.random() * Math.PI * 2;
-                    const distanceX = (Math.random() - 0.5) * 200 + (Math.random() - 0.5) * 100;
-                    const distanceY = (Math.random() - 0.5) * 150 - 80;
-                    const rotation = (Math.random() - 0.5) * 540;
-                    const delay = Math.random() * 0.4;
+                    const distanceX = (Math.random() - 0.5) * 280 + (Math.random() - 0.5) * 120;
+                    const distanceY = (Math.random() - 0.5) * 200 - 100;
+                    const flyRotation = (Math.random() - 0.5) * 720 + (Math.random() - 0.5) * 180;
+                    const delay = Math.random() * 0.5;
                     
                     shred.style.setProperty('--dx', distanceX + 'px');
                     shred.style.setProperty('--dy', distanceY + 'px');
-                    shred.style.setProperty('--rot', rotation + 'deg');
+                    shred.style.setProperty('--rot', flyRotation + 'deg');
                     shred.style.setProperty('--delay', delay + 's');
                     
                     shredContainer.appendChild(shred);
-                    shreds.push({ shred, delay, distanceX, distanceY, rotation });
+                    shreds.push({ shred, delay, distanceX, distanceY, flyRotation });
                 }
                 
-                // Animation starten
+                // Animation starten: Schnipsel fliegen weg
                 setTimeout(() => {
-                    shreds.forEach(({ shred, delay, distanceX, distanceY, rotation }) => {
+                    shreds.forEach(({ shred, delay, distanceX, distanceY, flyRotation }) => {
                         setTimeout(() => {
-                            shred.style.transform = `translate(${distanceX}px, ${distanceY}px) rotate(${rotation}deg)`;
+                            shred.style.transform = `translate(${distanceX}px, ${distanceY}px) rotate(${flyRotation}deg)`;
                             shred.style.opacity = '0';
                         }, delay * 1000);
                     });
@@ -252,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (pageIndex === pageImages.length - 1) {
                         showPlaceholder(container);
                     }
-                }, 1000);
+                }, 2200); // Längere Wartezeit (2,2 Sekunden)
             };
             
             img.src = imageData;
