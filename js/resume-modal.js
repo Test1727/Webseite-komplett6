@@ -334,7 +334,8 @@ document.addEventListener('DOMContentLoaded', function() {
             glitzer.style.left = posX + 'px';
             glitzer.style.top = posY + 'px';
             glitzer.style.fontSize = size + 'px';
-            glitzer.style.color = '#00ffff';
+            // Farbe mit !important erzwingen
+            glitzer.style.setProperty('color', '#00ffff', 'important');
             glitzer.style.textShadow = `0 0 ${6 + Math.random() * 10}px rgba(0,255,255,0.9)`;
             glitzer.style.opacity = '0';
             glitzer.style.transition = 'opacity 0.3s ease';
@@ -382,17 +383,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target === modalElement) closeModalHandler();
         });
         
-        // Download-Button komplett ausblenden
+        // NUR Download-Button ausblenden - Footer bleibt sichtbar!
         const downloadBtnElem = document.getElementById('download-resume');
         if (downloadBtnElem) {
             downloadBtnElem.style.display = 'none';
         }
         
-        // Optional: Auch den gesamten Footer ausblenden
-        const modalFooter = document.querySelector('.modal-footer');
-        if (modalFooter) {
-            modalFooter.style.display = 'none';
-        }
+        // Footer NICHT ausblenden!
     }
     
     // Modal schließen
