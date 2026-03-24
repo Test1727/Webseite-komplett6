@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // PDF laden mit kurz unscharf + Pixel-Zerfall
+    // PDF laden mit kurz unscharf + Pixel-Zerfall (aus tatsächlichem Bild)
     function loadPdfWithBlurAndDissolve(url, container) {
         container.innerHTML = '<p style="padding:2rem; text-align:center;">PDF wird geladen...</p>';
         
@@ -76,14 +76,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             container.appendChild(pagesWrapper);
             
-            const pageCanvases = [];
+            const pageImages = []; // Speichert die Bilder der Seiten
             const loadPromises = [];
             
-            // Alle PDF-Seiten laden
+            // Alle PDF-Seiten laden und als Bilder speichern
             for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
                 loadPromises.push(
                     pdf.getPage(pageNum).then(function(page) {
-                        const viewport = page.getViewport({ scale: 1.2 });
+                        const viewport = page.getViewport({ scale: 1.5 }); // Höhere Auflösung für Pixel
                         
                         const canvas = document.createElement('canvas');
                         const context = canvas.getContext('2d');
@@ -103,12 +103,20 @@ document.addEventListener('DOMContentLoaded', function() {
                         pageContainer.appendChild(canvas);
                         pagesWrapper.appendChild(pageContainer);
                         
-                        pageCanvases.push(canvas);
-                        
                         return page.render({
                             canvasContext: context,
                             viewport: viewport
-                        }).promise;
+                        }).promise.then(() => {
+                            // Nach dem Rendern: Bilddaten speichern
+                            const imageData = canvas.toDataURL('image/png');
+                            pageImages.push({
+                                canvas: canvas,
+                                imageData: imageData,
+                                container: pageContainer,
+                                width: canvas.width,
+                                height: canvas.height
+                            });
+                        });
                     })
                 );
             }
@@ -116,13 +124,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // Nachdem alle Seiten geladen sind: kurz unscharf zeigen, dann Zerfall
             Promise.all(loadPromises).then(() => {
                 // 1. Kurz unscharf machen (0.5 Sekunde)
-                pageCanvases.forEach(canvas => {
-                    canvas.style.filter = 'blur(12px)';
+                pageImages.forEach(img => {
+                    img.canvas.style.filter = 'blur(12px)';
                 });
                 
-                // 2. Nach 0.5 Sekunden: Zerfall starten
+                // 2. Nach 0.5 Sekunden: Zerfall mit echten Pixeln starten
                 setTimeout(() => {
-                    startPixelDissolve(pagesWrapper, pageCanvases, container);
+                    startRealPixelDissolve(pagesWrapper, pageImages, container);
                 }, 500);
             });
             
@@ -134,21 +142,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Pixel-Zerfall-Effekt
-    function startPixelDissolve(wrapper, canvases, container) {
+    // Pixel-Zerfall mit echten Bildpixeln aus dem PDF
+    function startRealPixelDissolve(wrapper, pageImages, container) {
         // Position des Wrappers ermitteln
         const wrapperRect = wrapper.getBoundingClientRect();
         
-        // Für jede Seite ein Pixel-Raster erzeugen
-        canvases.forEach((canvas, index) => {
+        // Für jede Seite
+        pageImages.forEach((page, pageIndex) => {
+            const canvas = page.canvas;
             const canvasRect = canvas.getBoundingClientRect();
             const relativeTop = canvasRect.top - wrapperRect.top;
             const relativeLeft = canvasRect.left - wrapperRect.left;
             
-            // Canvas-Inhalt als Bild speichern
-            const imageData = canvas.toDataURL();
-            
-            // Canvas ausblenden
+            // Original-Canvas ausblenden
             canvas.style.opacity = '0';
             canvas.style.transition = 'opacity 0.2s';
             
@@ -161,70 +167,107 @@ document.addEventListener('DOMContentLoaded', function() {
             pixelContainer.style.height = canvasRect.height + 'px';
             pixelContainer.style.overflow = 'hidden';
             pixelContainer.style.pointerEvents = 'none';
-            pixelContainer.style.zIndex = '5';
+            pixelContainer.style.zIndex = '10';
             wrapper.appendChild(pixelContainer);
             
-            // Pixel-Größe: 8x8 Pixel pro Block
-            const pixelSize = 12;
+            // Pixel-Größe: 12x12 Pixel
+            const pixelSize = 14;
             const cols = Math.ceil(canvasRect.width / pixelSize);
             const rows = Math.ceil(canvasRect.height / pixelSize);
             
-            const pixels = [];
-            
-            // Pixel-Elemente erzeugen
-            for (let row = 0; row < rows; row++) {
-                for (let col = 0; col < cols; col++) {
-                    const pixel = document.createElement('div');
-                    pixel.style.position = 'absolute';
-                    pixel.style.width = pixelSize + 'px';
-                    pixel.style.height = pixelSize + 'px';
-                    pixel.style.left = (col * pixelSize) + 'px';
-                    pixel.style.top = (row * pixelSize) + 'px';
-                    pixel.style.backgroundColor = '#0a3d62';
-                    pixel.style.opacity = '0';
-                    pixel.style.transform = 'scale(0.8)';
-                    pixel.style.transition = 'all 0.4s ease-out';
-                    pixel.style.borderRadius = '2px';
-                    
-                    // Zufällige Verzögerung für jedes Pixel
-                    const delay = Math.random() * 0.8;
-                    const xOffset = (Math.random() - 0.5) * 80;
-                    const yOffset = (Math.random() - 0.5) * 80 + 20;
-                    const rotation = (Math.random() - 0.5) * 360;
-                    
-                    pixel.style.setProperty('--x', xOffset + 'px');
-                    pixel.style.setProperty('--y', yOffset + 'px');
-                    pixel.style.setProperty('--rot', rotation + 'deg');
-                    
-                    pixelContainer.appendChild(pixel);
-                    pixels.push({ pixel, delay });
-                }
-            }
-            
-            // Animation starten: Pixel erscheinen und fliegen weg
-            setTimeout(() => {
-                pixels.forEach(({ pixel, delay }) => {
-                    setTimeout(() => {
-                        pixel.style.opacity = '0.9';
-                        pixel.style.transform = `translate(var(--x), var(--y)) rotate(var(--rot)) scale(0.3)`;
-                        pixel.style.opacity = '0';
-                    }, delay * 1000);
-                });
-            }, 50);
-            
-            // Nach der Animation: Pixel-Container entfernen und Platzhalter anzeigen
-            setTimeout(() => {
-                pixelContainer.remove();
+            // Canvas als Bild für Pixel-Farben verwenden
+            const img = new Image();
+            img.onload = function() {
+                // Temporäres Canvas für Farbextraktion
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = canvas.width;
+                tempCanvas.height = canvas.height;
+                const tempCtx = tempCanvas.getContext('2d');
+                tempCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
                 
-                // Wenn letzte Seite fertig, Platzhalter anzeigen
-                if (index === canvases.length - 1) {
-                    showPlaceholder(container);
+                const pixels = [];
+                
+                // Pixel-Elemente mit tatsächlichen Farben erzeugen
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        // Berechne die entsprechende Position im Original-Canvas
+                        const srcX = Math.floor(col * (canvas.width / cols));
+                        const srcY = Math.floor(row * (canvas.height / rows));
+                        const srcW = Math.ceil(canvas.width / cols);
+                        const srcH = Math.ceil(canvas.height / rows);
+                        
+                        // Farbe aus dem Bild holen (Durchschnitt)
+                        let r = 0, g = 0, b = 0, count = 0;
+                        for (let y = 0; y < srcH && srcY + y < canvas.height; y++) {
+                            for (let x = 0; x < srcW && srcX + x < canvas.width; x++) {
+                                const pixelData = tempCtx.getImageData(srcX + x, srcY + y, 1, 1).data;
+                                r += pixelData[0];
+                                g += pixelData[1];
+                                b += pixelData[2];
+                                count++;
+                            }
+                        }
+                        if (count > 0) {
+                            r = Math.floor(r / count);
+                            g = Math.floor(g / count);
+                            b = Math.floor(b / count);
+                        }
+                        
+                        const pixel = document.createElement('div');
+                        pixel.style.position = 'absolute';
+                        pixel.style.width = pixelSize + 'px';
+                        pixel.style.height = pixelSize + 'px';
+                        pixel.style.left = (col * pixelSize) + 'px';
+                        pixel.style.top = (row * pixelSize) + 'px';
+                        pixel.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+                        pixel.style.opacity = '1';
+                        pixel.style.transform = 'scale(1)';
+                        pixel.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                        pixel.style.borderRadius = '1px';
+                        pixel.style.boxShadow = 'inset 0 0 0 0.5px rgba(255,255,255,0.3)';
+                        
+                        // Zufällige Flugrichtung
+                        const angle = Math.random() * Math.PI * 2;
+                        const distance = 80 + Math.random() * 100;
+                        const xOffset = Math.cos(angle) * distance;
+                        const yOffset = Math.sin(angle) * distance - 30;
+                        const rotation = (Math.random() - 0.5) * 720;
+                        
+                        pixel.style.setProperty('--x', xOffset + 'px');
+                        pixel.style.setProperty('--y', yOffset + 'px');
+                        pixel.style.setProperty('--rot', rotation + 'deg');
+                        
+                        pixelContainer.appendChild(pixel);
+                        pixels.push(pixel);
+                    }
                 }
-            }, 1200);
+                
+                // Animation starten: Pixel fliegen weg
+                setTimeout(() => {
+                    pixels.forEach((pixel, idx) => {
+                        const delay = Math.random() * 0.3;
+                        setTimeout(() => {
+                            pixel.style.transform = `translate(var(--x), var(--y)) rotate(var(--rot)) scale(0.2)`;
+                            pixel.style.opacity = '0';
+                        }, delay * 1000);
+                    });
+                }, 50);
+                
+                // Nach der Animation: Pixel-Container entfernen
+                setTimeout(() => {
+                    pixelContainer.remove();
+                    
+                    // Wenn letzte Seite, Platzhalter anzeigen
+                    if (pageIndex === pageImages.length - 1) {
+                        showPlaceholder(container);
+                    }
+                }, 800);
+            };
+            
+            img.src = page.imageData;
         });
         
-        // Falls keine Canvas vorhanden, direkt Platzhalter
-        if (canvases.length === 0) {
+        if (pageImages.length === 0) {
             showPlaceholder(container);
         }
     }
@@ -240,6 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
         placeholder.style.borderRadius = '12px';
         placeholder.style.border = '2px dashed #0a3d62';
         placeholder.style.margin = '1rem';
+        placeholder.style.animation = 'fadeIn 0.5s ease';
         
         placeholder.innerHTML = `
             <div style="font-size: 4rem; margin-bottom: 1rem;">🔒</div>
@@ -257,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         container.appendChild(placeholder);
         
-        // Download-Button deaktivieren/verstecken
+        // Download-Button deaktivieren
         const downloadBtn = document.getElementById('download-resume');
         if (downloadBtn) {
             downloadBtn.style.opacity = '0.5';
@@ -283,11 +327,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     }
     
-    // Download-Funktion (deaktiviert, da Platzhalter)
+    // Download-Funktion
     downloadBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        
-        // Hinweis anzeigen, dass Download nicht verfügbar ist
         const iosHint = document.getElementById('ios-download-hint');
         if (iosHint) {
             iosHint.style.display = 'block';
