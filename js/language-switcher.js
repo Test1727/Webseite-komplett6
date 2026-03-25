@@ -179,7 +179,7 @@ const translations = {
         "carousel_slide2_item2": "Architektur",
         "carousel_slide2_item3": "Neuronale Netze",
         "carousel_slide2_item4": "Machine Learning",
-        "carousel_slide2_tag1": "Grundlagen",
+        "carousel_slide2_tag1": "Fundament",
         "carousel_slide2_tag2": "80% Schwerpunkt",
         
         // Slide 3: Manus KI-Agent
