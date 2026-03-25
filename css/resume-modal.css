@@ -202,8 +202,8 @@
 
 
 .lock-icon {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     stroke: #928e8e;
     fill: #a8a4a4;
     stroke-width: 1.2;
@@ -272,7 +272,9 @@
         padding: 1.5rem;
     }
     
-    .lock-icon {
+    .lock-icon {        
+    width: 80px;
+    height: 80px;
         font-size: 3.5rem;
     }
     
