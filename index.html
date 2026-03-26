@@ -977,7 +977,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let scrollTimeout;
     window.addEventListener('scroll', function() {
         if (scrollTimeout) clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(updateActiveSection, 50);
+        scrollTimeout = setTimeout(updateActiveSection, 0);
     });
     
     // Bei Fenstergrößenänderung neu berechnen (weil Header-Höhe sich ändern kann)
