@@ -38,6 +38,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 .container {
@@ -253,6 +254,7 @@ nav ul li a.active {
 
 main { padding-top: 0 !important; 
        flex: 1; /* nimmt den verfügbaren Platz ein */  
+      overflow-y: auto; /* falls Inhalt größer wird 
      }
 
 section {
