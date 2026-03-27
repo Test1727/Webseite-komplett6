@@ -1374,8 +1374,7 @@ label[for="contact-message"] {
 /* Für textarea - SPEZIFISCHES STYLING BEIBEHALTEN */
 .contact-form textarea {
     width: 100%;
-   <!-- background: #1a4a7a; -->
-    background: #2c4b6b;
+   background: #1a4a7a; 
     border: 1px solid #0a3d62;
     color: #e0f7ff;
     height: 140px;
